@@ -3,12 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "packageManager": "pnpm@10.0.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
-    "dev:frontend": "pnpm --filter @crm-velocy/frontend dev",
-    "dev:backend": "pnpm --filter @crm-velocy/backend start:dev",
-    "build": "pnpm -r build",
-    "lint": "pnpm -r lint",
-    "test": "pnpm -r test"
+    "dev": "npm run dev:frontend",
+    "dev:frontend": "npm run --prefix apps/frontend dev",
+    "dev:backend": "npm run --prefix apps/backend start:dev",
+    "build": "npm run build --workspaces",
+    "lint": "npm run lint --workspaces",
+    "test": "npm run test --workspaces"
   }
 }
 
