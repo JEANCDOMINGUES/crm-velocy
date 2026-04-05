@@ -1,0 +1,14 @@
+{
+  "name": "crm-velocy",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@10.0.0",
+  "scripts": {
+    "dev:frontend": "pnpm --filter @crm-velocy/frontend dev",
+    "dev:backend": "pnpm --filter @crm-velocy/backend start:dev",
+    "build": "pnpm -r build",
+    "lint": "pnpm -r lint",
+    "test": "pnpm -r test"
+  }
+}
+
