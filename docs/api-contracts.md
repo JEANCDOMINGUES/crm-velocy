@@ -17,6 +17,7 @@ Definir os contratos iniciais de API para suportar o MVP, com foco em clareza de
 - prefixo base: `/api`
 - formato principal: JSON
 - autenticacao: bearer token
+- identificador de tenant: cabeçalho `X-Organization-Id` (obrigatório)
 - versao inicial sugerida: `/api/v1`
 
 ## 4. Modulo de Autenticacao
@@ -228,7 +229,18 @@ Filtros iniciais:
 
 - iniciar envio da campanha
 
-## 12. Endpoints de Webhook
+## 12. Modulo de Carteira e Creditos
+
+### `GET /api/v1/wallet/balance`
+- retornar saldo atual e status da carteira
+
+### `GET /api/v1/wallet/transactions`
+- listar historico de consumo e recargas
+
+### `POST /api/v1/wallet/recharge`
+- criar solicitacao de recarga (simulado)
+
+## 13. Endpoints de Webhook
 
 ### `POST /api/v1/webhooks/whatsapp`
 

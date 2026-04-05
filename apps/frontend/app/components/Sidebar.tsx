@@ -59,15 +59,26 @@ function IconSettings() {
   );
 }
 
+function IconWallet() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4" />
+      <path d="M4 6v12c0 1.1.9 2 2 2h14v-4" />
+      <path d="M18 12a2 2 0 0 0-2 2c0 1.1.9 2 2 2h4v-4h-4z" />
+    </svg>
+  );
+}
+
 const mainNav = [
   { href: "/",       label: "Visão Geral", icon: <IconHome />,     badge: null },
   { href: "/inbox",  label: "Inbox",       icon: <IconInbox />,    badge: "19" },
+  { href: "/wallet", label: "Carteira",    icon: <IconWallet />,   badge: null },
   { href: "#",       label: "Contatos",    icon: <IconContacts />, badge: null },
   { href: "#",       label: "Relatórios",  icon: <IconChart />,    badge: null },
 ];
 
 const bottomNav = [
-  { href: "#", label: "Configurações", icon: <IconSettings /> },
+  { href: "/settings", label: "Configurações", icon: <IconSettings /> },
 ];
 
 export function Sidebar() {
@@ -133,7 +144,33 @@ export function Sidebar() {
         </nav>
       </div>
 
-      <div className="sidebar-section" style={{ marginTop: "auto" }}>
+      <div style={{ marginTop: "32px", padding: "0 12px 10px" }}>
+        <h3 style={{ fontSize: "0.65rem", fontWeight: "700", color: "var(--text-muted)", textTransform: "uppercase", letterSpacing: "0.05em", paddingLeft: "12px", marginBottom: "8px" }}>
+          Admin Geral
+        </h3>
+        <nav style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+          <a href="/admin/organizations" style={{ 
+            display: "flex", alignItems: "center", gap: "10px", padding: "10px 12px", 
+            borderRadius: "10px", color: "var(--text-secondary)", fontSize: "0.85rem", textDecoration: "none" 
+          }}>
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="14" y="14" width="7" height="7" /><rect x="3" y="14" width="7" height="7" />
+            </svg>
+            Gestão de Clients
+          </a>
+          <a href="#" style={{ 
+            display: "flex", alignItems: "center", gap: "10px", padding: "10px 12px", 
+            borderRadius: "10px", color: "var(--text-secondary)", fontSize: "0.85rem", textDecoration: "none" 
+          }}>
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+            Segurança Global
+          </a>
+        </nav>
+      </div>
+
+      <div style={{ marginTop: "auto", padding: "10px 12px" }}>
         <p className="sidebar-label">Sistema</p>
         <nav className="nav">
           {bottomNav.map((item) => (

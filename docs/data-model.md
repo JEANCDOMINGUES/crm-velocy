@@ -105,6 +105,7 @@ Campos iniciais sugeridos:
 Campos iniciais sugeridos:
 
 - id
+- organization_id (uuid) (FK)
 - cliente_id
 - contato_id
 - canal
@@ -265,7 +266,35 @@ Campos iniciais sugeridos:
 - criado_em
 - atualizado_em
 
-## 8. Relacionamentos Principais
+## 8. Financeiro
+
+### 8.1 carteiras (Wallet)
+Responsabilidade: Gerenciar saldo de créditos do cliente para disparos pagos.
+
+Campos iniciais sugeridos:
+- id
+- organization_id (uuid) (FK)
+- cliente_id
+- saldo_atual (Decimal)
+- moeda (BRL)
+- ultima_recarga_em
+- criado_em
+- atualizado_em
+
+### 8.2 transacoes (Transaction)
+Responsabilidade: Registro de débito/crédito de saldo.
+
+Campos iniciais sugeridos:
+- id
+- carteira_id
+- tipo (CREDITO/DEBITO)
+- categoria (RECARGA, DISPARO_MKT, DISPARO_SERVICO, ESTORNO)
+- valor (Decimal)
+- descricao (Ex: "Disparo via Template MKT_Abril")
+- referencia_externa_id
+- criado_em
+
+## 9. Relacionamentos Principais
 
 - perfis 1:N usuarios
 - equipes N:N usuarios
